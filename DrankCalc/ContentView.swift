@@ -8,19 +8,13 @@
 import SwiftUI
 
 enum Geslacht: String, CaseIterable, Identifiable {
-    case man
-    case vrouw
+    case man, vrouw
     
     var id: String { self.rawValue }
 }
 
 enum DrankSoort: String, CaseIterable, Identifiable {
-    case bier
-    case wijn
-    case whiskey
-    case wodka
-    case rum
-    case gin
+    case bier, wijn, whiskey, wodka, rum, gin
     
     var id: String { self.rawValue }
 
@@ -121,8 +115,7 @@ struct ContentView: View {
                     Text("Bekijk Belgische wetgeving")
                         .foregroundColor(.blue)
                 }
-            }
-            .navigationTitle("Alcohol Calculator")
+            }.navigationBarTitle("Hoeveel tot?", displayMode: .inline)
         }
     }
 
@@ -148,7 +141,7 @@ struct ContentView: View {
 
         var bac = (totaalAlcoholGram * 5.14) / (gewichtLBS * r)
 
-      
+
         bac -= (0.015 * tijdSindsLaatsteDrankje)
         return max(bac, 0.0)
     }
@@ -158,7 +151,7 @@ struct WetgevingView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 10) {
-                Text("Belgische Wetgeving")
+                Text("Belgische Wetgeving (2025)")
                     .font(.title2)
                     .bold()
                 Text("• Voor bestuurders van motorvoertuigen geldt een wettelijke limiet van 0.5‰ (promille).")
